@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import greeting from './cli.js';
+import greeting from '../bin/cli.js';
 
 const isEvenGame = () => {
   const name = greeting();
