@@ -1,0 +1,51 @@
+import readlineSync from 'readline-sync';
+
+export const formulateQuestion = (expression) => `Question: ${expression} \nYour answer: `;
+
+export const getAnswer = (questionText) => {
+  const answer = readlineSync.question(questionText);
+  return answer;
+};
+
+export const getRandomNumber = (number) => {
+  const result = Math.round(Math.random() * number);
+  return result;
+};
+
+export const isEvenNumber = (number) => {
+  if (number % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
+};
+
+export const getRandomMathOperation = () => {
+  const optionsMathOperations = ['+', '-', '*'];
+  const result = optionsMathOperations[getRandomNumber(optionsMathOperations.length - 1)];
+  return result;
+};
+
+export const calculateExpression = (firstNumber, secondNumber, mathOperation) => {
+  switch (mathOperation) {
+    case '+':
+      return firstNumber + secondNumber;
+    case '-':
+      return firstNumber - secondNumber;
+    case '*':
+      return firstNumber * secondNumber;
+    default:
+      return 'ask another question';
+  }
+};
+
+export const sayCorrect = () => {
+  console.log('Correct!');
+};
+
+export const sayItIsWrong = (userAnswer, rightAnswer, name) => {
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
+};
+
+export const sayCongratulations = (name) => {
+  console.log(`Congratulations, ${name}!`);
+};
