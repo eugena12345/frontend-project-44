@@ -3,7 +3,7 @@ import greeting from '../bin/cli.js';
 import {
 
   getRandomMathOperation, getRandomNumber, calculateExpression, getAnswer,
-  formulateQuestion, sayCongratulations, sayItIsWrong, sayCorrect,
+  formulateQuestion, sayCongratulations, checkResult,
 
 } from '../src/index.js';
 
@@ -20,11 +20,10 @@ const calcGame = () => {
     const question = formulateQuestion(expressionForGame);
     const answer = getAnswer(question);
     const rightAnswer = calculateExpression(firstNumber, secondNumber, randomMathOperation);
-    if (rightAnswer.toString() !== answer.toLocaleLowerCase()) {
-      sayItIsWrong(answer, rightAnswer, name);
+    const checkedResult = checkResult(rightAnswer, answer, name);
+    if (!checkedResult) {
       return;
     }
-    sayCorrect();
   }
   sayCongratulations(name);
 };

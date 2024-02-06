@@ -49,3 +49,12 @@ export const sayItIsWrong = (userAnswer, rightAnswer, name) => {
 export const sayCongratulations = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
+
+export const checkResult = (rightAnswer, answer, name) => {
+  if (rightAnswer.toString() !== answer.toLocaleLowerCase()) {
+    sayItIsWrong(answer, rightAnswer, name);
+    return false;
+  }
+  sayCorrect();
+  return true;
+};
