@@ -32,11 +32,8 @@ const getMaxDivisor = (num1, num2) => {
     }
   }
   result.sort((a, b) => a - b);
-  console.log(result[result.length - 1]);
   return result[result.length - 1];
 };
-
-getMaxDivisor(21, 17);
 
 const gsdGame = () => {
   const name = greeting();
