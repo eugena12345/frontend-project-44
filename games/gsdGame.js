@@ -3,24 +3,9 @@ import greeting from '../bin/cli.js';
 import {
 
   getRandomNumber, getAnswer,
-  formulateQuestion, sayCongratulations, checkResult,
+  formulateQuestion, sayCongratulations, checkResult, getAllDivisors,
 
 } from '../src/index.js';
-
-export const getAllDivisors = (num) => {
-  const divisors = [];
-  for (let i = 1; i * i <= num; i += 1) {
-    if (num % i === 0) {
-      const divisor = num / i;
-      divisors.push(i);
-      if (divisor !== i) {
-        divisors.push(divisor);
-      }
-    }
-  }
-  divisors.sort((a, b) => a - b);
-  return divisors;
-};
 
 const getMaxDivisor = (num1, num2) => {
   const num1Divisors = getAllDivisors(num1);

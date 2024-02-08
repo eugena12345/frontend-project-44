@@ -58,3 +58,18 @@ export const checkResult = (rightAnswer, answer, name) => {
   sayCorrect();
   return true;
 };
+
+export const getAllDivisors = (num) => {
+  const divisors = [];
+  for (let i = 1; i * i <= num; i += 1) {
+    if (num % i === 0) {
+      const divisor = num / i;
+      divisors.push(i);
+      if (divisor !== i) {
+        divisors.push(divisor);
+      }
+    }
+  }
+  divisors.sort((a, b) => a - b);
+  return divisors;
+};
