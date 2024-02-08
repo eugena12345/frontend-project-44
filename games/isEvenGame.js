@@ -1,25 +1,29 @@
-import readlineSync from 'readline-sync';
 import greeting from '../bin/cli.js';
+import {
+  getRandomNumber, formulateQuestion, getAnswer, checkResult, sayCongratulations,
+} from '../src/index.js';
+
+const isEvenNumber = (number) => {
+  if (number % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
+};
 
 const isEvenGame = () => {
   const name = greeting();
-  const isEvenNumber = (number) => {
-    if (number % 2 === 0) {
-      return 'yes';
-    }
-    return 'no';
-  };
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 1; i <= 3; i += 1) {
-    const randomNumber = Math.ceil(Math.random() * 10000);
-    const answer = readlineSync.question(`Question:${randomNumber} \nYour answer: `);
+    const randomNumber = getRandomNumber(100);
+    const expressionForGame = `${randomNumber}`;
+    const question = formulateQuestion(expressionForGame);
+    const answer = getAnswer(question);
     const rightAnswer = isEvenNumber(randomNumber);
-    if (rightAnswer !== answer.toLocaleLowerCase()) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
+    const checkedResult = checkResult(rightAnswer, answer, name);
+    if (!checkedResult) {
       return;
     }
-    console.log('Correct!');
   }
-  console.log(`Congratulations, ${name}!`);
+  sayCongratulations(name);
 };
 export default isEvenGame;
