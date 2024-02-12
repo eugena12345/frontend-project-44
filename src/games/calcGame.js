@@ -1,4 +1,4 @@
-import greeting from '../../bin/cli.js';
+import greeting from '../cli.js';
 
 import {
 

@@ -1,11 +1,11 @@
-import greeting from '../bin/cli.js';
+import greeting from '../cli.js';
 
 import {
 
   getRandomNumber, getAnswer,
   formulateQuestion, sayCongratulations, checkResult,
 
-} from '../src/index.js';
+} from '../index.js';
 
 const getProgressionColl = (firstNumber, progressionStep) => {
   const progressionColl = [firstNumber];

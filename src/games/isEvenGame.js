@@ -1,4 +1,4 @@
-import greeting from '../../bin/cli.js';
+import greeting from '../cli.js';
 import {
   getRandomNumber, formulateQuestion, getAnswer, checkResult, sayCongratulations,
 } from '../index.js';

@@ -1,11 +1,11 @@
-import greeting from '../bin/cli.js';
+import greeting from '../cli.js';
 
 import {
 
   getRandomNumber, getAnswer,
   formulateQuestion, sayCongratulations, checkResult, getAllDivisors,
 
-} from '../src/index.js';
+} from '../index.js';
 
 const getMaxDivisor = (num1, num2) => {
   const num1Divisors = getAllDivisors(num1);

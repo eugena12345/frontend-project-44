@@ -1,8 +1,8 @@
 import {
   getRandomNumber, formulateQuestion, getAnswer, getAllDivisors,
   checkResult, sayCongratulations,
-} from '../src/index.js';
-import greeting from '../bin/cli.js';
+} from '../index.js';
+import greeting from '../cli.js';
 
 const getRightAnswer = (number) => {
   const allNumberDivisor = getAllDivisors(number);
