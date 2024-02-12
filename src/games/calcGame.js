@@ -1,11 +1,11 @@
-import greeting from '../bin/cli.js';
+import greeting from '../../bin/cli.js';
 
 import {
 
   getRandomMathOperation, getRandomNumber, calculateExpression, getAnswer,
   formulateQuestion, sayCongratulations, checkResult,
 
-} from '../src/index.js';
+} from '../index.js';
 
 const calcGame = () => {
   const name = greeting();

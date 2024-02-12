@@ -1,7 +1,7 @@
-import greeting from '../bin/cli.js';
+import greeting from '../../bin/cli.js';
 import {
   getRandomNumber, formulateQuestion, getAnswer, checkResult, sayCongratulations,
-} from '../src/index.js';
+} from '../index.js';
 
 const isEvenNumber = (number) => {
   if (number % 2 === 0) {
