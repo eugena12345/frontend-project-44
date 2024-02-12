@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import greeting from './cli.js';
 
 export const formulateQuestion = (expression) => `Question: ${expression} \nYour answer: `;
 
@@ -72,4 +73,20 @@ export const getAllDivisors = (num) => {
   }
   divisors.sort((a, b) => a - b);
   return divisors;
+};
+const numberOfGames = 3;
+
+export const engine = (generalQuestion, getGameConditions) => {
+  const name = greeting();
+  console.log(generalQuestion);
+  for (let i = 1; i <= numberOfGames; i += 1) {
+    const { expressionForGame, rightAnswer } = getGameConditions();
+    const question = formulateQuestion(expressionForGame);
+    const answer = getAnswer(question);
+    const checkedResult = checkResult(rightAnswer, answer, name);
+    if (!checkedResult) {
+      return;
+    }
+  }
+  sayCongratulations(name);
 };

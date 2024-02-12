@@ -1,30 +1,21 @@
-import greeting from '../cli.js';
-
 import {
 
-  getRandomMathOperation, getRandomNumber, calculateExpression, getAnswer,
-  formulateQuestion, sayCongratulations, checkResult,
+  getRandomMathOperation, getRandomNumber, calculateExpression, engine,
 
 } from '../index.js';
 
 const calcGame = () => {
-  const name = greeting();
+  const generalQuestion = 'What is the result of the expression?';
 
-  console.log('What is the result of the expression?');
-
-  for (let i = 1; i <= 3; i += 1) {
+  const getGameConditions = () => {
     const firstNumber = getRandomNumber(100);
     const secondNumber = getRandomNumber(100);
     const randomMathOperation = getRandomMathOperation();
     const expressionForGame = `${firstNumber} ${randomMathOperation} ${secondNumber}`;
-    const question = formulateQuestion(expressionForGame);
-    const answer = getAnswer(question);
     const rightAnswer = calculateExpression(firstNumber, secondNumber, randomMathOperation);
-    const checkedResult = checkResult(rightAnswer, answer, name);
-    if (!checkedResult) {
-      return;
-    }
-  }
-  sayCongratulations(name);
+    const conditions = { expressionForGame, rightAnswer };
+    return conditions;
+  };
+  engine(generalQuestion, getGameConditions);
 };
 export default calcGame;
