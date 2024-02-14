@@ -1,9 +1,6 @@
-import greeting from '../cli.js';
-
 import {
 
-  getRandomNumber, getAnswer,
-  formulateQuestion, sayCongratulations, checkResult, getAllDivisors,
+  getRandomNumber, getAllDivisors, engine,
 
 } from '../index.js';
 
@@ -20,23 +17,16 @@ const getMaxDivisor = (num1, num2) => {
   return result[result.length - 1];
 };
 
+const generalQuestion = 'Find the greatest common divisor of given numbers.';
+const getGameData = () => {
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
+  const expressionForGame = `${firstNumber} ${secondNumber}`;
+  const rightAnswer = getMaxDivisor(firstNumber, secondNumber);
+  return { expressionForGame, rightAnswer };
+};
+
 const gsdGame = () => {
-  const name = greeting();
-
-  console.log('Find the greatest common divisor of given numbers.');
-
-  for (let i = 1; i <= 3; i += 1) {
-    const firstNumber = getRandomNumber(100);
-    const secondNumber = getRandomNumber(100);
-    const expressionForGame = `${firstNumber} ${secondNumber}`;
-    const question = formulateQuestion(expressionForGame);
-    const answer = getAnswer(question);
-    const rightAnswer = getMaxDivisor(firstNumber, secondNumber);
-    const checkedResult = checkResult(rightAnswer, answer, name);
-    if (!checkedResult) {
-      return;
-    }
-  }
-  sayCongratulations(name);
+  engine(generalQuestion, getGameData);
 };
 export default gsdGame;
