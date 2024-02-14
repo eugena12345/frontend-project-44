@@ -5,8 +5,8 @@ import {
 } from '../index.js';
 
 const getGameData = () => {
-  const firstNumber = getRandomNumber(100);
-  const secondNumber = getRandomNumber(100);
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
   const randomMathOperation = getRandomMathOperation();
   const expressionForGame = `${firstNumber} ${randomMathOperation} ${secondNumber}`;
   const rightAnswer = calculateExpression(firstNumber, secondNumber, randomMathOperation);

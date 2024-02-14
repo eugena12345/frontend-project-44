@@ -8,8 +8,8 @@ export const getAnswer = (questionText) => {
   return answer;
 };
 
-export const getRandomNumber = (number) => {
-  const result = Math.round(Math.random() * number);
+export const getRandomNumber = (maxNumber = 100, minNumber = 1) => {
+  const result = Math.round(Math.random() * (maxNumber - minNumber) + minNumber);
   return result;
 };
 
