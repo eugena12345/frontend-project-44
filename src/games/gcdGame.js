@@ -26,7 +26,7 @@ const getGameData = () => {
   return { expressionForGame, rightAnswer };
 };
 
-const gsdGame = () => {
+const gcdGame = () => {
   engine(generalQuestion, getGameData);
 };
-export default gsdGame;
+export default gcdGame;
