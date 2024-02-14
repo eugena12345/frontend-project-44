@@ -76,11 +76,11 @@ export const getAllDivisors = (num) => {
 };
 const numberOfGames = 3;
 
-export const engine = (generalQuestion, getGameConditions) => {
+export const engine = (generalQuestion, getGameData) => {
   const name = greeting();
   console.log(generalQuestion);
   for (let i = 1; i <= numberOfGames; i += 1) {
-    const { expressionForGame, rightAnswer } = getGameConditions();
+    const { expressionForGame, rightAnswer } = getGameData();
     const question = formulateQuestion(expressionForGame);
     const answer = getAnswer(question);
     const checkedResult = checkResult(rightAnswer, answer, name);
