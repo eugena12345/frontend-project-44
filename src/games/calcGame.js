@@ -23,6 +23,7 @@ const calculateExpression = (firstNumber, secondNumber, mathOperation) => {
   }
 };
 
+const generalQuestion = 'What is the result of the expression?';
 const getGameData = () => {
   const firstNumber = getRandomNumber();
   const secondNumber = getRandomNumber();
@@ -34,7 +35,6 @@ const getGameData = () => {
 };
 
 const calcGame = () => {
-  const generalQuestion = 'What is the result of the expression?';
   engine(generalQuestion, getGameData);
 };
 export default calcGame;
