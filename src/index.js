@@ -20,27 +20,6 @@ export const isEvenNumber = (number) => {
   return false;
 };
 
-export const sayCorrect = () => {
-  console.log('Correct!');
-};
-
-export const sayItIsWrong = (userAnswer, rightAnswer, name) => {
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
-};
-
-export const sayCongratulations = (name) => {
-  console.log(`Congratulations, ${name}!`);
-};
-
-export const checkResult = (rightAnswer, answer, name) => {
-  if (rightAnswer.toString() !== answer.toLocaleLowerCase()) {
-    sayItIsWrong(answer, rightAnswer, name);
-    return false;
-  }
-  sayCorrect();
-  return true;
-};
-
 export const getAllDivisors = (num) => {
   const divisors = [];
   for (let i = 1; i * i <= num; i += 1) {
@@ -64,10 +43,11 @@ export const engine = (generalQuestion, getGameData) => {
     const { expressionForGame, rightAnswer } = getGameData();
     const question = formulateQuestion(expressionForGame);
     const answer = getAnswer(question);
-    const checkedResult = checkResult(rightAnswer, answer, name);
-    if (!checkedResult) {
+    if (rightAnswer.toString() !== answer.toLocaleLowerCase()) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
       return;
     }
+    console.log('Correct!');
   }
-  sayCongratulations(name);
+  console.log(`Congratulations, ${name}!`);
 };
