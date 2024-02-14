@@ -20,25 +20,6 @@ export const isEvenNumber = (number) => {
   return false;
 };
 
-export const getRandomMathOperation = () => {
-  const optionsMathOperations = ['+', '-', '*'];
-  const result = optionsMathOperations[getRandomNumber(optionsMathOperations.length - 1)];
-  return result;
-};
-
-export const calculateExpression = (firstNumber, secondNumber, mathOperation) => {
-  switch (mathOperation) {
-    case '+':
-      return firstNumber + secondNumber;
-    case '-':
-      return firstNumber - secondNumber;
-    case '*':
-      return firstNumber * secondNumber;
-    default:
-      return 'ask another question';
-  }
-};
-
 export const sayCorrect = () => {
   console.log('Correct!');
 };

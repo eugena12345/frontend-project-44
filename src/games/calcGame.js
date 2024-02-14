@@ -1,8 +1,27 @@
 import {
 
-  getRandomMathOperation, getRandomNumber, calculateExpression, engine,
+  getRandomNumber, engine,
 
 } from '../index.js';
+
+const getRandomMathOperation = () => {
+  const optionsMathOperations = ['+', '-', '*'];
+  const result = optionsMathOperations[getRandomNumber((optionsMathOperations.length - 1), 0)];
+  return result;
+};
+
+const calculateExpression = (firstNumber, secondNumber, mathOperation) => {
+  switch (mathOperation) {
+    case '+':
+      return firstNumber + secondNumber;
+    case '-':
+      return firstNumber - secondNumber;
+    case '*':
+      return firstNumber * secondNumber;
+    default:
+      return 'ask another question';
+  }
+};
 
 const getGameData = () => {
   const firstNumber = getRandomNumber();
