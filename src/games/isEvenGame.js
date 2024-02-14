@@ -18,7 +18,7 @@ const isEvenGame = () => {
     const expressionForGame = `${randomNumber}`;
     const question = formulateQuestion(expressionForGame);
     const answer = getAnswer(question);
-    const rightAnswer = isEvenNumber(randomNumber);
+    const rightAnswer = (isEvenNumber(randomNumber)) ? 'yes' : 'no';
     const checkedResult = checkResult(rightAnswer, answer, name);
     if (!checkedResult) {
       return;

@@ -15,9 +15,9 @@ export const getRandomNumber = (maxNumber = 100, minNumber = 1) => {
 
 export const isEvenNumber = (number) => {
   if (number % 2 === 0) {
-    return 'yes';
+    return true;
   }
-  return 'no';
+  return false;
 };
 
 export const getRandomMathOperation = () => {
