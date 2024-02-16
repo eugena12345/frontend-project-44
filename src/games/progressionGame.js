@@ -1,43 +1,33 @@
-import greeting from '../cli.js';
-
 import {
 
-  getRandomNumber, getAnswer,
-  formulateQuestion, sayCongratulations, checkResult,
+  getRandomNumber, engine,
 
 } from '../index.js';
 
 const getProgressionColl = (firstNumber, progressionStep) => {
   const progressionColl = [firstNumber];
   let actualNumber = firstNumber;
-  for (let j = 1; j < 10; j += 1) {
+  const lengthOfCollection = 10;
+  for (let j = 1; j < lengthOfCollection; j += 1) {
     actualNumber += progressionStep;
     progressionColl.push(actualNumber);
   }
   return progressionColl;
 };
+const generalQuestion = 'What number is missing in the progression?';
+const getGameData = () => {
+  const firstNumberOfProgression = getRandomNumber(20);
+  const progressionStep = getRandomNumber(20);
+  const progressionColl = getProgressionColl(firstNumberOfProgression, progressionStep);
+  const secretItemIndex = getRandomNumber(progressionColl.length - 1);
+  const rightAnswer = progressionColl[secretItemIndex];
+  progressionColl[secretItemIndex] = '..';
+  const expressionForGame = progressionColl.join(' ');
+  return { expressionForGame, rightAnswer };
+};
 
 const progressionGame = () => {
-  const name = greeting();
-
-  console.log('What number is missing in the progression?');
-
-  for (let i = 1; i <= 3; i += 1) {
-    const firstNumberOfProgression = getRandomNumber(20);
-    const progressionStep = getRandomNumber(20);
-    const progressionColl = getProgressionColl(firstNumberOfProgression, progressionStep);
-    const secretItemIndex = getRandomNumber(9);
-    const rightAnswer = progressionColl[secretItemIndex];
-    progressionColl[secretItemIndex] = '..';
-    const expressionForGame = progressionColl.join(' ');
-    const question = formulateQuestion(expressionForGame);
-    const answer = getAnswer(question);
-    const checkedResult = checkResult(rightAnswer, answer, name);
-    if (!checkedResult) {
-      return;
-    }
-  }
-  sayCongratulations(name);
+  engine(generalQuestion, getGameData);
 };
 
 export default progressionGame;
