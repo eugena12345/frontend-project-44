@@ -14,13 +14,10 @@ export const getRandomNumber = (maxNumber = 100, minNumber = 1) => {
 };
 
 export const isEvenNumber = (number) => {
-  for (let i = 2; i <= number / 2; i += 1) {
-    if (number % i === 0) {
-      return false;
-    }
+  if (number % 2 === 0) {
+    return true;
   }
-
-  return true;
+  return false;
 };
 
 export const getAllDivisors = (num) => {
