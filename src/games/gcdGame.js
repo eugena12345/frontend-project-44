@@ -1,20 +1,20 @@
-import {
+import { getRandomNumber, engine } from '../index.js';
 
-  getRandomNumber, getAllDivisors, engine,
-
-} from '../index.js';
-
-const getMaxDivisor = (num1, num2) => {
-  const num1Divisors = getAllDivisors(num1);
-  const num2Divisors = getAllDivisors(num2);
-  const result = [];
-  for (let i = 0; i < num1Divisors.length; i += 1) {
-    if (num2Divisors.includes(num1Divisors[i])) {
-      result.push(num1Divisors[i]);
-    }
+const getGCD = (number1, number2) => {
+  let a;
+  let b;
+  if (number1 >= number2) {
+    a = number1;
+    b = number2;
+  } else {
+    a = number2;
+    b = number1;
   }
-  result.sort((a, b) => a - b);
-  return result[result.length - 1];
+  if (a % b !== 0) {
+    const r = a - b;
+    return getGCD(b, r);
+  }
+  return b;
 };
 
 const generalQuestion = 'Find the greatest common divisor of given numbers.';
@@ -22,7 +22,7 @@ const getGameData = () => {
   const firstNumber = getRandomNumber();
   const secondNumber = getRandomNumber();
   const expressionForGame = `${firstNumber} ${secondNumber}`;
-  const rightAnswer = getMaxDivisor(firstNumber, secondNumber);
+  const rightAnswer = getGCD(firstNumber, secondNumber);
   return { expressionForGame, rightAnswer };
 };
 

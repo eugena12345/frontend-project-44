@@ -20,20 +20,6 @@ export const isEvenNumber = (number) => {
   return false;
 };
 
-export const getAllDivisors = (num) => {
-  const divisors = [];
-  for (let i = 1; i * i <= num; i += 1) {
-    if (num % i === 0) {
-      const divisor = num / i;
-      divisors.push(i);
-      if (divisor !== i) {
-        divisors.push(divisor);
-      }
-    }
-  }
-  divisors.sort((a, b) => a - b);
-  return divisors;
-};
 const numberOfGames = 3;
 
 export const engine = (generalQuestion, getGameData) => {
