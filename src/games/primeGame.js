@@ -2,34 +2,22 @@ import {
   getRandomNumber, engine,
 } from '../index.js';
 
-const getAllDivisors = (number) => {
-  if (number === 1) {
-    return [1];
+const isPrime = (number) => {
+  if (number <= 2) {
+    return false;
   }
-  const divisorsColl = [1, number];
-  const iter = (divisor) => {
-    if (divisor < number / 2) {
-      if (number % divisor === 0) {
-        const secondDivisor = number / divisor;
-        if (!divisorsColl.includes(divisor)) {
-          divisorsColl.push(divisor);
-        }
-        if (!divisorsColl.includes(secondDivisor)) {
-          divisorsColl.push(secondDivisor);
-        }
-      }
-      iter(divisor + 1);
+  for (let i = 2; i <= number / 2; i += 1) {
+    if (number % i === 0) {
+      return false;
     }
-  };
-  iter(2);
-  divisorsColl.sort((a, b) => a - b);
-  return divisorsColl;
+  }
+  return true;
 };
 
 const generalQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const getRightAnswer = (number) => {
-  const allNumberDivisor = getAllDivisors(number);
-  return allNumberDivisor.length > 2 ? 'no' : 'yes';
+  const answer = isPrime(number) ? 'yes' : 'no';
+  return answer;
 };
 const getGameData = () => {
   const firstNumber = getRandomNumber();
