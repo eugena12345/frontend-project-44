@@ -12,10 +12,8 @@ const getGCD = (number1, number2) => {
   }
   if (a % b !== 0) {
     const r = a % b;
-    console.log(`a ${a}, b ${b}, r ${r}`);
     return getGCD(b, r);
   }
-  console.log(`right answer ${b}`);
   return b;
 };
 
