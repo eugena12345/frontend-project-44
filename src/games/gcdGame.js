@@ -11,9 +11,11 @@ const getGCD = (number1, number2) => {
     b = number1;
   }
   if (a % b !== 0) {
-    const r = a - b;
+    const r = a % b;
+    console.log(`a ${a}, b ${b}, r ${r}`);
     return getGCD(b, r);
   }
+  console.log(`right answer ${b}`);
   return b;
 };
 
