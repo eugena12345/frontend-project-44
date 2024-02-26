@@ -1,4 +1,5 @@
-import { getRandomNumber, engine } from '../index.js';
+import { engine } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const getGCD = (number1, number2) => {
   let a;

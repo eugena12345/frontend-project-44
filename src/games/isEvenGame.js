@@ -1,6 +1,5 @@
-import {
-  getRandomNumber, isEvenNumber, engine,
-} from '../index.js';
+import { engine } from '../index.js';
+import { getRandomNumber, isEvenNumber } from '../utils.js';
 
 const generalQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 const getGameData = () => {

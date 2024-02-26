@@ -1,8 +1,5 @@
-import {
-
-  getRandomNumber, engine,
-
-} from '../index.js';
+import { engine } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const getProgressionColl = (firstNumber, progressionStep) => {
   const progressionColl = [firstNumber];

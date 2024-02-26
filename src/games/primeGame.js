@@ -1,6 +1,5 @@
-import {
-  getRandomNumber, engine,
-} from '../index.js';
+import { engine } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const isPrime = (number) => {
   if (number <= 2) {
